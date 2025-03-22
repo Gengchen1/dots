@@ -8,9 +8,20 @@ set nocompatible  " no vi compatible
 
 set modelines=0
 set nomodeline
+set number
+set relativenumber
+
+" 自动换行显示
+set wrap                " 自动折行
+set linebreak           " 按单词边界换行
+set breakindent         " 换行后缩进对齐
+set showbreak=↪\        " 自定义换行符号（可选）
+set display+=lastline   " 显示长行末尾
 
 let mapleader=' '
 let maplocalleader=','
+let g:AutoPairs = {'(':')', '[':']', '{':'}', '"':'"', '```':'```'}  " 自定义补全规则
+let g:AutoPairsShortcutFastWrap = '<M-e>'  " 自定义快速换行快捷键
 
 inoremap <C-j> <C-[>
 noremap <C-j> <C-[>
@@ -100,9 +111,9 @@ endfunction
 " misc
 set mouse=nvi
 set bs=indent,eol,start  " control the behavior of <BS> <CTRL-H> <CTRL-W> <CTRL-U>
-set nowrap
+" set nowrap
 set diffopt=vertical,filler,context:3,foldcolumn:1,internal,algorithm:histogram,indent-heuristic
-set clipboard=
+set clipboard=unnamedplus
 set nrformats= " For <C-a> and <C-x>
 set hidden     " allow to switch buffer even the current buffer is unsaved
 set confirm    " friendly quit for when quitting the buffer is not saved
